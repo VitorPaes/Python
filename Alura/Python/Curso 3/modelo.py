@@ -1,3 +1,6 @@
+from abc import ABC
+
+
 class Programa:
     def __init__(self, nome, ano):
         self._nome = nome.title ()
@@ -19,8 +22,8 @@ class Programa:
     def nome(self, novo_nome):
         self._nome = novo_nome.title()
 
-    def imprime(self):
-        print(f'Nome: {self._nome} - {self.ano} - {self._likes} Likes' )
+    def __str__(self):
+        return f'Nome: {self._nome} - {self.ano} - {self._likes} Likes' 
 
 class Filme(Programa):
     def __init__(self, nome, ano, duracao):
@@ -35,22 +38,20 @@ class Serie(Programa):
     def __init__(self, nome, ano, temporadas):
         super().__init__(nome,ano)
         self.temporadas = temporadas 
-        self._likes = 0
     
     def __str__(self):
         return f'Nome: {self._nome} - {self.ano} - {self.temporadas} Temp - {self._likes} Likes' 
 
-class Playlist:
+class Playlist ():
     def __init__(self, nome, programas):
         self.nome = nome
         self._programas = programas
     
-    @property
-    def listagem(self):
-        return self._programas
+    def __getitem__(self, item):
+        return self._programas[item]
     
-    @property
-    def tamanho(self):
+        
+    def __len__(self):
         return len(self._programas)
         
         
@@ -68,12 +69,14 @@ tmep.dar_like()
 demolidor.dar_like()
 atlanta.dar_like()
 
-filmes_e_series = [vingadores, atlanta, demolidor, tmep]
-playlist_fim_de_semana = Playlist('Fim de Semana', filmes_e_series)
+filmes_series = [vingadores, atlanta, demolidor, tmep]
+playlist_fim_de_semana = Playlist('Fim de Semana', filmes_series)
 
+
+for programa in playlist_fim_de_semana:
+    print(programa)
+    
+    
 print(f'Tamanho do playlist: {len(playlist_fim_de_semana)}')
 
-for programa in playlist_fim_de_semana.listagem:
-    print(programa)
-
-print(f' Tem demolidor? {demolidor in playlist_fim_de_semana}')
+print(playlist_fim_de_semana[0])

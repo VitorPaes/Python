@@ -1,6 +1,6 @@
 # Reposito para estudo
 
-> Repositorio para estudo da lingugem python. Todo dia uma um commit.
+> Repositorio para estudo da lingugem python.
 
 ### Ajustes e melhorias
 

@@ -6,5 +6,5 @@
 
 O projeto ainda está em desenvolvimento e as próximas tarefas:
 
-- [ ] Formacao Python Alura
+- [x] Formacao Python Alura
 - [ ] Formcao Data Engineer (Data Camp)
